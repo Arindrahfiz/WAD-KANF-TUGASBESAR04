@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,12 @@ Route::middleware('auth')->group(function () {
         ->middleware('role:admin,customer')
         ->name('vendors.index');
 
+    Route::get('/barang', [BarangController::class, 'index'])
+        ->middleware('role:admin,customer')
+        ->name('barang.index');
+
     Route::middleware('role:admin')->group(function () {
         Route::resource('vendors', VendorController::class)->except(['index', 'show']);
+        Route::resource('barang', BarangController::class)->except(['index', 'show']);
     });
 });
