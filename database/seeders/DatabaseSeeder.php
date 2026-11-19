@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
 {
     User::updateOrCreate(
-        ['email' => 'admin@kelompok4.com'],
+        ['email' => 'admin@kelompok4.com' ],
         ['name' => 'Admin', 'password' => 'password123', 'role' => 'admin']
     );
 
@@ -24,5 +24,7 @@ class DatabaseSeeder extends Seeder
         ['email' => 'cust@kelompok4.com'],
         ['name' => 'Customer', 'password' => 'password123', 'role' => 'customer']
     );
+
+    $this->call(KategoriSeeder::class);
 }
 }

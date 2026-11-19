@@ -11,6 +11,14 @@
            class="{{ request()->routeIs('vendors.*') ? 'aktif' : '' }}">
             Vendor
         </a>
+        <a href="{{ route('barang.index') }}"
+           class="{{ request()->routeIs('barang.*') ? 'aktif' : '' }}">
+            Barang
+        </a>
+        <a href="{{ route('armada.index') }}"
+           class="{{ request()->routeIs('armada.*') ? 'aktif' : '' }}">
+            Armada
+        </a>
     </nav>
 
     <form action="{{ route('logout') }}" method="POST" class="sidebar-logout">
